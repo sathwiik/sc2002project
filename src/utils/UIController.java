@@ -11,7 +11,14 @@ import boundary.OfficerPage;
  * like separators, looping back to main menus for different user roles, and exiting the application.
  */
 public class UIController {
-
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     * Throwing an error ensures it's not accidentally called via reflection.
+     */
+    private UIController() {
+        // Prevent instantiation
+        throw new IllegalStateException("Utility class should not be instantiated");
+    }
     /**
      * A constant string used as a visual separator in console output,
      * typically for separating different sections or headers.

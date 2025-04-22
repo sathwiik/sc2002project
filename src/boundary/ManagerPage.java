@@ -31,7 +31,14 @@ import java.time.*;
  * and generate reports.
  */
 public class ManagerPage {
-
+    /**
+     * Private constructor to prevent instantiation of this  class.
+     * Throwing an error ensures it's not accidentally called via reflection.
+     */
+    private ManagerPage() {
+        // Prevent instantiation
+        throw new IllegalStateException("This class should not be instantiated");
+    }
     /**
      * Instance variable for request ID. Note: This variable is not used by any static methods
      * within this class as provided and might be leftover code or intended for future non-static use.
@@ -531,7 +538,7 @@ public class ManagerPage {
     }
 
     /**
-     * Toggles the visibility status of a project (Visible <-> Not Visible).
+     * Toggles the visibility status of a project (Visible - Not Visible).
      * Prompts for the project ID.
      * Delegates the toggle logic to {@link ManagerProjectController#toggleVisibility(String)}.
      * Catches and displays a message for {@link ProjectNotFoundException} if the project ID is invalid.

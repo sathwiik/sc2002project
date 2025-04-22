@@ -6,7 +6,14 @@ import utils.IDController;
  * Initializes necessary controllers and starts the user interface flow.
  */
 public class Main {
-
+    /**
+     * Private constructor to prevent instantiation of this  class.
+     * Throwing an error ensures it's not accidentally called via reflection.
+     */
+    private Main() {
+        // Prevent instantiation
+        throw new IllegalStateException("This class should not be instantiated");
+    }
     /**
      * The main method that serves as the entry point for the application execution.
      * It first initializes the ID generation system by calling {@link utils.IDController#init()}

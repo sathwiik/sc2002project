@@ -34,7 +34,14 @@ import utils.UIController;
  * It operates using the context of the currently logged-in manager's ID.
  */
 public class ManagerProjectController {
-
+    /**
+     * Private constructor to prevent instantiation of this  class.
+     * Throwing an error ensures it's not accidentally called via reflection.
+     */
+    private ManagerProjectController() {
+        // Prevent instantiation
+        throw new IllegalStateException("This class should not be instantiated");
+    }
     /**
      * Stores the user ID of the manager currently interacting with the system.
      * This ID is typically set by the {@link AccountController} upon successful login of a Manager.
@@ -247,7 +254,7 @@ public class ManagerProjectController {
         if (manager == null) {
              System.out.println("No manager found with ID: " + managerID);
              // Throwing exception might be too strong, maybe just return?
-             throw new ProjectNotFoundException("Manager not found.");
+             throw new ProjectNotFoundException();
         }
 
         List<String> projectIDs = manager.getProject();

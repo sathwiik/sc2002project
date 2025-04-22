@@ -29,7 +29,14 @@ import utils.UIController;
  * (registering for projects, managing applicant requests/enquiries, booking flats, generating receipts).
  */
 public class OfficerPage {
-
+    /**
+     * Private constructor to prevent instantiation of this  class.
+     * Throwing an error ensures it's not accidentally called via reflection.
+     */
+    private OfficerPage() {
+        // Prevent instantiation
+        throw new IllegalStateException("This class should not be instantiated");
+    }
     /**
      * Displays the main menu options available to the logged-in officer.
      * This menu includes options for both applicant-related actions and officer-specific duties.
