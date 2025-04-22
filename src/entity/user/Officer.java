@@ -89,3 +89,37 @@ public class Officer extends Applicant {
     public Map<String, RegistrationStatus> getRegistrationStatus() {
         // Return a copy or ensure map is initialized
         return (registrationStatus != null) ? registrationStatus : new HashMap<>();
+    }
+
+    /**
+     * Gets the registration status for a specific project ID from the status map.
+     *
+     * @param projectID The ID of the project whose registration status is needed.
+     * @return The {@link RegistrationStatus} for the given project ID, or null if not found.
+     */
+    public RegistrationStatus getRegistrationStatusByID(String projectID) {
+         if (this.registrationStatus == null || projectID == null) {
+             return null;
+         }
+        return registrationStatus.get(projectID);
+    }
+
+    /**
+     * Sets or updates the registration status for a specific project ID in the status map.
+     * Typically used when an officer applies to register or when a manager approves/rejects the registration.
+     *
+     * @param projectID The ID of the project whose registration status is being set.
+     * @param status    The {@link RegistrationStatus} to set for the project.
+     */
+    public void setRegistrationStatusByID(String projectID, RegistrationStatus status) {
+        if (this.registrationStatus == null) {
+            this.registrationStatus = new HashMap<>(); // Initialize if null
+        }
+         if (projectID != null && status != null) {
+            registrationStatus.put(projectID, status);
+         } else if (projectID != null) {
+             // Optionally handle setting status to null (e.g., remove the entry)
+             registrationStatus.remove(projectID);
+         }
+    }
+}
